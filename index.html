@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurnitureMan Nigeria | Exquisite Handcrafted Furniture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #008751;
+            --secondary-color: #FCD116;
+            --accent-color: #008751;
+            --dark-color: #000000;
+            --light-color: #F8F4E9;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray: #5A5A5A;
+            --light-gray: #E9E5D6;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 6px 25px rgba(0, 0, 0, 0.2);
+            --transition: all 0.4s ease;
+            --border-radius: 8px;
+            --border-radius-lg: 16px;
+            --container-width: 1200px;
+            --spacing-sm: 15px;
+            --spacing-md: 30px;
+            --spacing-lg: 60px;
+            --spacing-xl: 100px;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Playfair Display', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+            color: var(--dark-color);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 15px;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--secondary-color);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn:hover::after {
+            width: 100%;
+        }
+
+        .btn:hover {
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary::after {
+            background: var(--accent-color);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp::after {
+            background: #128C7E;
+        }
+
+        .btn-whatsapp:hover {
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-size: 1.8rem;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.9rem;
+            color: var(--gray);
+            align-self: flex-end;
+            margin-top: -8px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        /* Carousel Styles */
+        #main-carousel {
+            margin-top: 80px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            max-height: 900px;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .carousel-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .carousel-slide:hover .carousel-img {
+            transform: scale(1.05);
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 10;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel-content h2 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: var(--white);
+            display: block;
+            width: 100%;
+        }
+
+        .carousel-content h2::after {
+            display: none;
+        }
+
+        .carousel-content p {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-content .btn {
+            margin-top: 25px;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .carousel-indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-indicator.active {
+            background: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 20;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--secondary-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 30px;
+        }
+
+        .carousel-next {
+            right: 30px;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(rgba(0, 135, 81, 0.85), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1598808872621-0d77d2441b36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        #hero .container {
+            max-width: 800px;
+        }
+
+        #hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 35px;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Featured Products */
+        #featured-products {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-img {
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .product-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Services Section */
+        #services {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials */
+        #testimonials {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(to right, var(--primary-color), var(--dark-color));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #testimonials::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(252, 209, 22, 0.15) 0%, rgba(0, 135, 81, 0) 70%);
+            z-index: 0;
+        }
+
+        #testimonials .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-lg);
+            padding: 35px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "  ";
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-family: Georgia, serif;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.15);
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-top: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+
+        /* About Section */
+        #about {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .about-text h2 {
+            font-size: 2.6rem;
+            margin-bottom: 30px;
+        }
+
+        .about-text h2::after {
+            width: 50%;
+        }
+
+        .about-img {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            position: relative;
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--light-gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            min-width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 135, 81, 0.2);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 70px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--light-color);
+            opacity: 0.8;
+            transition: var(--transition);
+            display: block;
+            padding: 5px 0;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-address p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-address i {
+            margin-right: 10px;
+            min-width: 20px;
+            color: var(--secondary-color);
+            margin-top: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .map-container {
+            height: 250px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--primary-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.6);
+            z-index: 2000;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-widget:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.8);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Nigerian Flag Decoration */
+        .nigerian-flag {
+            height: 4px;
+            background: linear-gradient(to right, 
+                var(--green) 33%, 
+                var(--white) 33%, 
+                var(--white) 66%, 
+                var(--green) 66%);
+            background-size: 30px 4px;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        /* Responsive Design - CRITICAL FIXES HERE */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block !important;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 80%;
+                height: calc(100vh - 80px);
+                padding: 30px;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 999;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            nav ul.mobile-menu-active {
+                right: 0 !important;
+            }
+            
+            .carousel-content h2 {
+                font-size: 3.2rem;
+            }
+            
+            .carousel-content p {
+                font-size: 1.4rem;
+            }
+            
+            .carousel-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .carousel-prev {
+                left: 15px;
+            }
+            
+            .carousel-next {
+                right: 15px;
+            }
+            
+            #hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            #hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .logo-text span:first-child {
+                font-size: 1.6rem;
+            }
+            
+            .logo-text span:last-child {
+                font-size: 0.8rem;
+            }
+            
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .carousel-content h2 {
+                font-size: 2.6rem;
+            }
+            
+            .carousel-content p {
+                font-size: 1.3rem;
+            }
+            
+            .carousel-controls {
+                bottom: 20px;
+                gap: 10px;
+            }
+            
+            .carousel-indicator {
+                width: 12px;
+                height: 12px;
+            }
+            
+            #hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            #hero p {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .carousel-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .whatsapp-widget {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .map-container {
+                height: 200px;
+            }
+            
+            .logo-text span:first-child {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text span:last-child {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch logo-icon"></i>
+                <div class="logo-text">
+                    <span>FurnitureMan</span>
+                    <span>Nigeria</span>
+                </div>
+            </a>
+            
+            <!-- SIMPLE INLINE ONCLICK HANDLER - MOST RELIABLE -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="#featured-products" onclick="closeMobileMenu()">Products</a></li>
+                    <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+                    <li><a href="#about" onclick="closeMobileMenu()">About Us</a></li>
+                    <li><a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a></li>
+                    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Carousel Section -->
+    <section id="main-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="https://images.unsplash.com/photo-1598808872621-0d77d2441b36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Luxury Living Room Furniture" class="carousel-img">
+                <div class="carousel-content">
+                    <h2>Exquisite Nigerian Craftsmanship</h2>
+                    <p>Handcrafted furniture designed for comfort and elegance. Transform your living space with our premium collections made from the finest Nigerian woods.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Shop Collection
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dining Room Furniture" class="carousel-img">
+                <div class="carousel-content">
+                    <h2>Elegant Dining Solutions</h2>
+                    <p>From intimate family gatherings to grand celebrations, our dining collections create the perfect setting for memorable moments in your Nigerian home.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> View Dining Sets
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1584621881583-1c3e7d4c0c35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Bedroom Furniture" class="carousel-img">
+                <div class="carousel-content">
+                    <h2>Luxurious Bedroom Sets</h2>
+                    <p>Experience ultimate comfort and style with our handcrafted bedroom furniture. Designed for restful nights and beautiful mornings in your Nigerian home.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Discover Bedrooms
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1600586409532-946de9ad5f8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Office Furniture" class="carousel-img">
+                <div class="carousel-content">
+                    <h2>Premium Office Furniture</h2>
+                    <p>Elevate your workspace with our executive office collections. Crafted for productivity, comfort, and professional aesthetics for Nigerian businesses.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Design Your Office
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-controls">
+            <span class="carousel-indicator active"></span>
+            <span class="carousel-indicator"></span>
+            <span class="carousel-indicator"></span>
+            <span class="carousel-indicator"></span>
+        </div>
+        
+        <button class="carousel-arrow carousel-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow carousel-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <h1>Crafting Timeless Furniture Since 1985</h1>
+            <p>At FurnitureMan Nigeria, we blend traditional Nigerian craftsmanship with contemporary design to create pieces that become family heirlooms. Each item is meticulously handcrafted using sustainable local materials and time-honored techniques.</p>
+            <a href="https://wa.me/2348031234567" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Start Your Custom Order
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="featured-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Collections</h2>
+                <p>Discover our most sought-after furniture pieces, crafted with passion and precision using the finest Nigerian woods</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1598808872621-0d77d2441b36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Modern Sofa Set">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Iroko Luxury Sofa Set</h3>
+                        <p class="product-desc">Luxurious 3-seater sofa crafted from premium Nigerian Iroko wood with elegant upholstery</p>
+                        <div class="product-price">₦385,000</div>
+                        <a href="https://wa.me/2348031234567" class="btn btn-secondary">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Dining Table Set">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mahogany Dining Set</h3>
+                        <p class="product-desc">Handcrafted 8-seater dining table with matching chairs from premium Nigerian Mahogany</p>
+                        <div class="product-price">₦520,000</div>
+                        <a href="https://wa.me/2348031234567" class="btn btn-secondary">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1584621881583-1c3e7d4c0c35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Luxury Bed">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Obeche King Bed</h3>
+                        <p class="product-desc">King-size bed with upholstered headboard crafted from premium Nigerian Obeche wood</p>
+                        <div class="product-price">₦425,000</div>
+                        <a href="https://wa.me/2348031234567" class="btn btn-secondary">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1600586409532-946de9ad5f8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Executive Desk">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">African Walnut Desk</h3>
+                        <p class="product-desc">Executive desk crafted from rare African Walnut with traditional Nigerian carving details</p>
+                        <div class="product-price">₦675,000</div>
+                        <a href="https://wa.me/2348031234567" class="btn btn-secondary">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>We offer comprehensive furniture solutions tailored to your unique Nigerian home and business needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3 class="service-title">Custom Furniture Design</h3>
+                    <p>Work with our master craftsmen to create bespoke pieces that perfectly match your vision, space, and style requirements using locally sourced Nigerian woods.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-secondary">Design Consultation</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="service-title">Nationwide Delivery</h3>
+                    <p>Our professional delivery team handles careful transportation and setup of your new furniture pieces anywhere in Nigeria with white-glove service.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-secondary">Schedule Delivery</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Restoration & Repair</h3>
+                    <p>Breathe new life into your cherished heirloom furniture with our expert restoration and repair services, preserving Nigerian craftsmanship traditions.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-secondary">Restore Furniture</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="service-title">Space Planning</h3>
+                    <p>Our interior design experts help you optimize your space layout for both aesthetics and functionality, tailored to Nigerian home designs and lifestyles.</p>
+                    <a href="https://wa.me/2348031234567" class="btn btn-secondary">Plan Your Space</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>Hear from our valued Nigerian clients about their experiences with FurnitureMan</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>FurnitureMan transformed our Ikoyi living room with their custom Iroko sofa and coffee table. The craftsmanship is exceptional, and the team was a pleasure to work with from design to delivery. Our piece is not just furniture—it's a work of art that we'll cherish for generations.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Chiamaka Eze">
+                        </div>
+                        <div class="author-info">
+                            <h4>Chiamaka Eze</h4>
+                            <p>Homeowner, Lagos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>As an interior designer in Abuja, I've partnered with FurnitureMan on multiple high-end projects. Their attention to detail, quality materials, and ability to execute custom designs flawlessly make them my go-to furniture supplier. They consistently exceed my clients' expectations.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Tunde Adebayo">
+                        </div>
+                        <div class="author-info">
+                            <h4>Tunde Adebayo</h4>
+                            <p>Interior Designer, Abuja</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>We commissioned FurnitureMan to create a complete dining set for our restaurant in Port Harcourt. Not only did they deliver stunning pieces that elevated our entire space, but they also worked within our tight timeline and budget constraints. The durability has been impressive with daily commercial use.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ngozi Okonkwo">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ngozi Okonkwo</h4>
+                            <p>Restaurant Owner, Port Harcourt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Craftsmanship Story</h2>
+                <p>Three generations of passion, precision, and dedication to Nigerian furniture making excellence</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Heritage of Excellence Since 1985</h2>
+                    <p>FurnitureMan began as a small workshop in Lagos in 1985, founded by master craftsman Chinedu Okoro. What started as a passion for woodworking has grown into a renowned furniture design and manufacturing company across Nigeria, while maintaining our commitment to quality and tradition.</p>
+                    <p>Today, led by Chinedu's son Emeka and granddaughter Adaora, we continue to honor time-honored techniques while embracing innovative designs and sustainable practices. Each piece we create tells a story of dedication, artistry, and the enduring beauty of fine Nigerian craftsmanship.</p>
+                    <p>Our workshop in Ikeja employs over 50 skilled artisans who bring decades of experience to every project. We source our materials responsibly from sustainable Nigerian forests, using Iroko, Mahogany, Obeche, and African Walnut to create furniture that's beautiful, durable, and proudly Nigerian.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">38+</div>
+                            <div class="stat-text">Years of Excellence</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15,000+</div>
+                            <div class="stat-text">Happy Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-text">Master Artisans</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-text">Nigerian Materials</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1598808872621-0d77d2441b36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Our Workshop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Reach out to start your journey toward beautiful, custom-crafted Nigerian furniture</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Showroom</h4>
+                                <p>15 Allen Avenue, Ikeja, Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p>+234 803 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p>info@furnituremannigeria.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: 12:00 PM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/2348031234567" class="btn btn-whatsapp" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Chat With Us on WhatsApp
+                    </a>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="inquiry-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FurnitureMan Nigeria</h3>
+                    <p style="margin-top: 20px; margin-bottom: 25px; line-height: 1.7;">Crafting timeless furniture pieces with passion, precision, and sustainable Nigerian materials since 1985. We transform spaces with heirloom-quality designs that celebrate our rich cultural heritage.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#featured-products">Shop Collections</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Product Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Living Room Furniture</a></li>
+                        <li><a href="#">Dining Room Collections</a></li>
+                        <li><a href="#">Bedroom Sets</a></li>
+                        <li><a href="#">Office Furniture</a></li>
+                        <li><a href="#">Outdoor Collections</a></li>
+                        <li><a href="#">Custom Commissions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Details</h3>
+                    <div class="footer-address">
+                        <p><i class="fas fa-map-marker-alt"></i> 15 Allen Avenue, Ikeja, Lagos, Nigeria</p>
+                        <p><i class="fas fa-phone"></i> +234 803 123 4567</p>
+                        <p><i class="fas fa-envelope"></i> info@furnituremannigeria.com</p>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.951682293056!2d3.379248374860261!3d6.524379393470478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc97f9d8f9d8f9d8!2sLagos!5e0!3m2!1sen!2sng!4v1707072123456!5m2!1sen!2sng" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 FurnitureMan Nigeria. All Rights Reserved. | Handcrafted with Passion in Lagos, Nigeria</p>
+                <div class="nigerian-flag"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Widget -->
+    <a href="https://wa.me/2348031234567" class="whatsapp-widget" target="_blank" aria-label="WhatsApp Chat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- SIMPLE, RELIABLE JAVASCRIPT - NO COMPLEXITY -->
+    <script>
+        // Toggle mobile menu - SUPER SIMPLE
+        function toggleMobileMenu() {
+            var menu = document.getElementById('nav-menu');
+            var icon = document.getElementById('menu-icon');
+            menu.classList.toggle('mobile-menu-active');
+            
+            // Change icon
+            if (menu.classList.contains('mobile-menu-active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        // Close menu when clicking a link
+        function closeMobileMenu() {
+            var menu = document.getElementById('nav-menu');
+            var icon = document.getElementById('menu-icon');
+            menu.classList.remove('mobile-menu-active');
+            icon.className = 'fas fa-bars';
+        }
+        
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will contact you shortly via WhatsApp or email.');
+            event.target.reset();
+        }
+        
+        // Simple carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentSlide = 0;
+            var slides = document.querySelectorAll('.carousel-slide');
+            var indicators = document.querySelectorAll('.carousel-indicator');
+            
+            function showSlide(index) {
+                if (index >= slides.length) index = 0;
+                if (index < 0) index = slides.length - 1;
+                
+                currentSlide = index;
+                
+                // Update slides
+                document.querySelector('.carousel-container').style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+                
+                // Update indicators
+                indicators.forEach(function(indicator, i) {
+                    indicator.classList.toggle('active', i === currentSlide);
+                });
+            }
+            
+            // Next/prev buttons
+            document.querySelector('.carousel-prev').addEventListener('click', function() {
+                showSlide(currentSlide - 1);
+            });
+            
+            document.querySelector('.carousel-next').addEventListener('click', function() {
+                showSlide(currentSlide + 1);
+            });
+            
+            // Indicators
+            indicators.forEach(function(indicator, index) {
+                indicator.addEventListener('click', function() {
+                    showSlide(index);
+                });
+            });
+            
+            // Auto slide
+            setInterval(function() {
+                showSlide(currentSlide + 1);
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
